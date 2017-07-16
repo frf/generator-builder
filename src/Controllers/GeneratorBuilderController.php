@@ -26,7 +26,7 @@ class GeneratorBuilderController extends Controller
 
         $res = Artisan::call($data['commandType'], [
             'model' => $data['modelName'],
-            '--jsonFromGUI' => json_encode($data)
+            '--jsonFromGUI' => base64_encode(json_encode($data))
         ]);
 
         return Response::json("Files created successfully");
